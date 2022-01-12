@@ -1,8 +1,9 @@
+import HeaderContainer from "./containers/header";
 
 function App() {
   return (
     <div>
-      app
+      <HeaderContainer/>
     </div>
   );
 }
