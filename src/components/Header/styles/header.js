@@ -7,6 +7,7 @@ export const Container = styled.header`
     justify-content: space-between;
     padding: 0 1.5em;
     align-items: center;
+    margin: 0;
 `;
 // the height of the container is being determined by the padding on its tallest grandchild, NavListItem
 
@@ -33,15 +34,16 @@ export const NavList = styled.ul`
 export const NavListItem = styled.li`
     font-size: 13px;
     font-weight: 400;
-    border-bottom: ${props=> props.isActive && 'solid 2px #5CE1EC'};
     padding: 2em 0;
+    border-bottom: ${props=>props.isActive && `solid ${props.theme.colors.primary}`}
 `;
+
 
 export const NavListLink = styled.a`
     text-decoration: none;
     color: white;
     &:hover, &:focus{
-        color: #00C2CB;
+        color: var(--color-secondary);
     }
 `;
 
@@ -49,11 +51,11 @@ export const Contact = styled.a`
     cursor: pointer;
     font-size: 13px;
     color: black;
-    background: #5CE1EC;
+    background: var(--color-primary);
     padding: .5em 1em;
     border-radius: 18px;
 
     &:hover, &:focus{
-        background: #00C2CB;
+        background: var(--color-secondary);
     }
 `
