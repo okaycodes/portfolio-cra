@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: #000000;
-        color: #333333;
+        color: #F1F1F1;
         font-size: 16px;
         margin: 0;
         --color-primary: #5CE1EC;
