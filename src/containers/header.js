@@ -12,7 +12,7 @@ export default function HeaderContainer (){
                 <Header.NavList>
                     { navArray.map((navItem, index)=>{
                        return(
-                       <Header.NavListItem onClick={()=>setActiveIndex(index)} isActive={activeIndex===index}>
+                       <Header.NavListItem key={index} onClick={()=>setActiveIndex(index)} isActive={activeIndex===index}>
                             <Header.NavListLink href="#">{navItem}</Header.NavListLink>
                         </Header.NavListItem>
                     )})}
