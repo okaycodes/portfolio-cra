@@ -99,7 +99,7 @@ export const future = [
     {
         id: 6,
         name: 'Spring',
-        image: '../../images/icons/java .svg'
+        image: '../../images/icons/spring.svg'
     }
 ]
 
