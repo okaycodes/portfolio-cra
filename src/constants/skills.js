@@ -31,11 +31,6 @@ export const proficient = [
     },
     {
         id: 7,
-        name: 'django',
-        image: '../../images/icons/django.svg'
-    },
-    {
-        id: 8,
         name: 'github',
         image: '../../images/icons/github.svg'
     }
@@ -50,18 +45,18 @@ export const learning = [
     },
     {
         id: 2,
-        name: 'React-Native',
-        image: '../../images/icons/react-js.svg'
+        name: 'Express',
+        image: '../../images/icons/express.svg'
     },
     {
         id: 3,
-        name: 'MongoDB',
-        image: '../../images/icons/mongodb.svg'
+        name: 'Redux',
+        image: '../../images/icons/redux.svg'
     },
     {
         id: 4,
-        name: 'tailwind css',
-        image: '../../images/icons/tailwind-css.svg'
+        name: 'MongoDB',
+        image: '../../images/icons/mongodb.svg'
     },
     {
         id: 5,
@@ -73,33 +68,38 @@ export const learning = [
 export const future = [
     {
         id: 1,
+        name: 'React-Native',
+        image: '../../images/icons/react-js.svg'
+    },
+    {
+        id: 2,
+        name: 'Typescript',
+        image: '../../images/icons/typescript.svg'
+    },
+    {
+        id: 3,
         name: 'Angular',
         image: '../../images/icons/angular.svg'
     },
     {
-        id: 2,
+        id: 4,
         name: 'Vue',
         image: '../../images/icons/vue-js.svg'
     },
     {
-        id: 3,
-        name: 'Java',
-        image: '../../images/icons/java.svg'
-    },
-    {
-        id: 4,
-        name: 'Php',
-        image: '../../images/icons/php.svg'
-    },
-    {
         id: 5,
-        name: 'Laravel',
-        image: '../../images/icons/laravel.svg'
+        name: 'Sass',
+        image: '../../images/icons/sass.svg'
     },
     {
         id: 6,
-        name: 'Spring',
-        image: '../../images/icons/spring.svg'
-    }
+        name: 'django',
+        image: '../../images/icons/django.svg'
+    },
+    {
+        id: 7,
+        name: 'tailwind css',
+        image: '../../images/icons/tailwind-css.svg'
+    },
 ]
 
