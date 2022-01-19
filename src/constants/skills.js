@@ -31,7 +31,7 @@ export const proficient = [
     },
     {
         id: 7,
-        name: 'github',
+        name: 'Github',
         image: '../../images/icons/github.svg'
     }
 
@@ -93,13 +93,84 @@ export const future = [
     },
     {
         id: 6,
-        name: 'django',
+        name: 'Django',
         image: '../../images/icons/django.svg'
     },
     {
         id: 7,
-        name: 'tailwind css',
+        name: 'Tailwind CSS',
         image: '../../images/icons/tailwind-css.svg'
     },
+    {
+        id: 7,
+        name: 'Post CSS',
+        image: '../../images/icons/post-css.svg'
+    },
+    {
+        id: 8,
+        name: 'Webpack',
+        image: '../../images/icons/webpack.svg'
+    },
+    {
+        id: 9,
+        name: 'Postgre Sql',
+        image: '../../images/icons/postgresql.svg'
+    },
+    {
+        id: 10,
+        name: 'Redis',
+        image: '../../images/icons/redis.svg'
+    },
+    {
+        id: 11,
+        name: 'Nest Js',
+        image: '../../images/icons/nestjs.svg'
+    },
+    {
+        id: 12,
+        name: 'Next Js',
+        image: '../../images/icons/nextjs.svg'
+    },
+    {
+        id: 13,
+        name: 'TypeORM',
+        image: '../../images/icons/typeorm.svg'
+    },
+    {
+        id: 14,
+        name: 'NginX',
+        image: '../../images/icons/nginx.svg'
+    },
+    {
+        id: 15,
+        name: 'GraphQL',
+        image: '../../images/icons/graphql.svg'
+    },
+    {
+        id: 16,
+        name: 'Apollo',
+        image: '../../images/icons/apollographql.svg'
+    },
+    {
+        id: 17,
+        name: 'Auth0',
+        image: '../../images/icons/auth0.svg'
+    },
+    {
+        id: 18,
+        name: 'Stripe',
+        image: '../../images/icons/stripe.svg'
+    },
+    {
+        id: 19,
+        name: 'Twilio',
+        image: '../../images/icons/twilio.svg'
+    },
+    {
+        id: 20,
+        name: 'Paystack',
+        image: '../../images/icons/paystack.svg'
+    },
+    
 ]
 
