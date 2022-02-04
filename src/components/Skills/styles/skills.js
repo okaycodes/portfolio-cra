@@ -52,7 +52,7 @@ export const Icon = styled.img`
     height: 45px;
     width: 45px;
     padding: 5px;
-    background-color: #232323;
+    background-color: white;
     border-radius: 6px;
 `;
 
