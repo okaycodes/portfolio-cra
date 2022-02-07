@@ -62,7 +62,12 @@ export const learning = [
         id: 5,
         name: 'Docker',
         image: '../../images/icons/docker.svg'
-    }
+    },
+    {
+        id: 6,
+        name: 'Typescript',
+        image: '../../images/icons/typescript.svg'
+    },
 ]
 
 export const future = [
