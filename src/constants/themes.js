@@ -1,10 +1,9 @@
 import { green, neutral } from "./colors";
+import { fontSize, fontFamily } from "./typography";
 
 const theme = {
-  fonts: {
-    primary: "16px",
-    small: "13px",
-  },
+  fontSize,
+  fontFamily,
 };
 
 const darkTheme = {
