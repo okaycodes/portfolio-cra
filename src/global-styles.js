@@ -1,12 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     html, body {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #000000;
-        color: #F1F1F1;
+        background-color: ${(props) => props.theme.colors.bg};
+        color: ${(props) => props.theme.colors.text};
         font-size: 16px;
         margin: 0;
         --color-primary: #5CE1EC;

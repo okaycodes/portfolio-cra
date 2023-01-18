@@ -1,12 +1,11 @@
-export const primaryFont = '"Roboto Mono", monospace';
-
-export const typeScale = {
-  header1: "1.8rem",
-  header2: "1.6rem",
-  header3: "1.4rem",
-  header4: "1.2rem",
-  header5: "1.1rem",
-  paragraph: "1rem",
-  helperText: "0.8rem",
-  copyrightText: "0.7rem",
+export const fontSize = {
+  xl3: "1.8rem",
+  xl2: "1.6rem",
+  xl1: "1.4rem",
+  xl: "1.2rem",
+  lg: "1.1rem",
+  m: "1rem",
+  s: "0.8rem",
 };
+
+export const fontFamily = { primary: '"Roboto Mono", monospace' };

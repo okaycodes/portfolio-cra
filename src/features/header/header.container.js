@@ -1,12 +1,17 @@
-import { Header } from "./../components";
+import Header from "./header";
 import { useState } from "react";
 
-export default function HeaderContainer() {
+export default function HeaderContainer({
+  switchTheme,
+  themeMode,
+  scrollPastHeader,
+}) {
   const navArray = ["HOME", "ABOUT", "SKILL SET", "PROJECTS", "EXPERIENCE"];
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <Header>
+    <Header scrollPastHeader={scrollPastHeader}>
       <Header.Logo src="./../../images/icons/logo.svg" />
+
       <Header.Nav>
         <Header.NavList>
           {navArray.map((navItem, index) => {
@@ -22,6 +27,10 @@ export default function HeaderContainer() {
           })}
         </Header.NavList>
       </Header.Nav>
+      <Header.ThemeIcon
+        switchTheme={switchTheme}
+        themeMode={themeMode}
+      ></Header.ThemeIcon>
     </Header>
   );
 }
