@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 500px;
-  margin: 0;
-  background-color: ${(props) => props.theme.colors.bg};
+  max-width: 1100px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`
@@ -13,16 +16,29 @@ export const Title = styled.h1`
   display: inline;
 `;
 
-export const Text = styled.p``;
-
-export const TextAccent = styled.p`
+export const Text = styled.p`
   display: inline;
+`;
+
+export const TextAccent = styled.span`
+  display: inline;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Avatar = styled.img`
   width: 200px;
   height: 200px;
-  margin: 100px;
+  margin: 190px 0 100px;
   background-color: white;
   border-radius: 50%;
+`;
+// additional 90px is added to the avatar to account for the
+// default height of the fixed header
+
+export const Intro = styled.div`
+  font-size: 1.25rem;
+  width: 85%;
+  max-width: 750px;
+  text-align: center;
 `;
