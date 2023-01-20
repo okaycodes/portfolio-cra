@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import useThemeMode from "./hooks/use-theme";
 import themeData from "./constants/themes";
 import { GlobalStyles } from "./global-styles";
+import ProjectContainer from "./features/projects/projectsList";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         scrollPastHeader={scrollPastHeader}
       />
       <HeroContainer />
+      <ProjectContainer />
       <SkillSetContainer />
     </ThemeProvider>
   );
