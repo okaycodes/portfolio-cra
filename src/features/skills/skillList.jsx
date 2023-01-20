@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { proficient } from "../../constants/skills";
+import { proficient } from "./skills.constants";
 import { SectionBaseStyles } from "../common/styles";
 
 import Title from "../ui/title";
@@ -37,8 +37,8 @@ const SkillList = styled.ul`
 `;
 
 const Skill = styled.li`
-  font-size: ${(props) => props.theme.fontSize.lg};
-  padding: 0.7em 1em;
-  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
   margin: 0.5em;
+  padding: 0.7em 1em;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.65);
+  font-size: ${(props) => props.theme.fontSize.lg};
 `;

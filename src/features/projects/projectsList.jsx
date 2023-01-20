@@ -1,6 +1,6 @@
 import ProjectItem from "./projectItem";
 import styled from "styled-components";
-import { projects } from "../../constants/projects";
+import { projects } from "./projects.constants";
 import Title from "../ui/title";
 import { SectionBaseStyles } from "../common/styles";
 
