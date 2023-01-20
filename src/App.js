@@ -1,12 +1,14 @@
+import { useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
+
+import themeData from "./constants/themes";
+import useThemeMode from "./hooks/use-theme";
+import { GlobalStyles } from "./global-styles";
 import HeaderContainer from "./features/header/header.container";
 import HeroContainer from "./features/hero/hero.container";
-import SkillSetContainer from "./containers/skills";
-import { ThemeProvider } from "styled-components";
-import useThemeMode from "./hooks/use-theme";
-import themeData from "./constants/themes";
-import { GlobalStyles } from "./global-styles";
+import SkillsContainer from "./features/skills/skillList";
 import ProjectContainer from "./features/projects/projectsList";
-import { useEffect, useState } from "react";
+import ContactsContainer from "./features/contact/contact";
 
 function App() {
   const [scrollPastHeader, setScrollPastHeader] = useState(false);
@@ -34,7 +36,8 @@ function App() {
       />
       <HeroContainer />
       <ProjectContainer />
-      <SkillSetContainer />
+      <SkillsContainer />
+      <ContactsContainer />
     </ThemeProvider>
   );
 }
