@@ -1,11 +1,19 @@
 import ProjectItem from "./projectItem";
 import styled from "styled-components";
 import { projects } from "../../constants/projects";
+import Title from "../ui/title";
+import { SectionBaseStyles } from "../common/styles";
 
 export default function ProjectContainer() {
+  const actionBtns = [
+    { name: "all", event: () => console.log("all") },
+    { name: "mobile", event: () => console.log("mobile") },
+    { name: "frontend", event: () => console.log("frontend") },
+    { name: "backend", event: () => console.log("backend") },
+  ];
   return (
     <Container>
-      <Title>Projects</Title>
+      <Title actionBtns={actionBtns}>PROJECTS</Title>
       <List>
         {projects.map((project) => (
           <ProjectItem
@@ -21,15 +29,10 @@ export default function ProjectContainer() {
   );
 }
 
-const Container = styled.section`
+const Container = styled(SectionBaseStyles)`
    width: 85%
    max-width: 1100px;
    margin-bottom: 150px;
-`;
-
-const Title = styled.h2`
-  font-size: ${(props) => props.theme.fontSize.xl3};
-  text-align: center;
 `;
 
 const List = styled.ul`
@@ -37,6 +40,7 @@ const List = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-items: center;
   width: 90%;
+  padding: 0;
   max-width: 700px;
   margin: 0 auto;
   grid-gap: 2em;

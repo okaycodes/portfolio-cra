@@ -4,6 +4,7 @@ import { SectionBaseStyles } from "../common/styles";
 export const Container = styled(SectionBaseStyles)`
   align-items: center;
   min-height: 500px;
+  margin-bottom: 100px;
 `;
 
 export const Title = styled.h1`
