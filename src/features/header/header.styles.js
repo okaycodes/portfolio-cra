@@ -53,7 +53,7 @@ export const NavListLink = styled.a`
   color: ${(props) => props.theme.colors.text};
   &:hover,
   &:focus {
-    color: var(--color-secondary);
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 
