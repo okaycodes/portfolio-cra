@@ -13,7 +13,7 @@ export default function SkillsContainer() {
   ];
 
   return (
-    <Container>
+    <Container id="skills">
       <Title actionBtns={actionBtns}>SKILLS</Title>
       <SkillList>
         {proficient.map((skill) => {

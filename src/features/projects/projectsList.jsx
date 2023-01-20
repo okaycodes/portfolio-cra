@@ -12,7 +12,7 @@ export default function ProjectContainer() {
     { name: "backend", event: () => console.log("backend") },
   ];
   return (
-    <Container>
+    <Container id="projects">
       <Title actionBtns={actionBtns}>PROJECTS</Title>
       <List>
         {projects.map((project) => (

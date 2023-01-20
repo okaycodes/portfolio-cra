@@ -1,9 +1,8 @@
 import Hero from "./hero";
-import { Divider } from "../common/styles";
 
 export default function HeroContainer() {
   return (
-    <Hero>
+    <Hero id="about">
       <Hero.Avatar></Hero.Avatar>
       <Hero.Intro>
         <Hero.Text>Hi there, My name is </Hero.Text>

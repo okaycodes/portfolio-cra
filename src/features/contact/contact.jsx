@@ -6,7 +6,7 @@ import { SectionBaseStyles } from "../common/styles";
 
 export default function ContactsContainer() {
   return (
-    <Container>
+    <Container id="contact">
       <Title>CONTACT ME</Title>
       <Button variant="SECONDARY">E-MAIL</Button>
     </Container>

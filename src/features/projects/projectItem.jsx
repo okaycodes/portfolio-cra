@@ -28,7 +28,7 @@ export default function ProjectItem({ title, image, description, links }) {
   );
 }
 
-const Container = styled.section`
+const Container = styled.li`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -36,7 +36,8 @@ const Container = styled.section`
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  height: 380px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.65);
 `;
 
 const Title = styled.h3`
