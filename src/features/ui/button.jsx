@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function Button({
+  iconName,
   children,
   onClick,
   type = "button",
@@ -8,18 +9,21 @@ export default function Button({
   ...restProps
 }) {
   switch (variant) {
-    case "PRIMARY":
-      return (
-        <PrimaryButton onClick={onClick} type={type} {...restProps}>
-          {children}
-        </PrimaryButton>
-      );
+    case "ICON":
+      return <IconButton>{children}</IconButton>;
 
     case "SECONDARY":
       return (
         <SecondaryButton onClick={onClick} type={type} {...restProps}>
           {children}
         </SecondaryButton>
+      );
+
+    default:
+      return (
+        <PrimaryButton onClick={onClick} type={type} {...restProps}>
+          {children}
+        </PrimaryButton>
       );
   }
 }
@@ -30,7 +34,7 @@ const Base = styled.button`
   transition: all 300ms;
 `;
 
-export const PrimaryButton = styled(Base)`
+const PrimaryButton = styled(Base)`
   background-color: ${(props) => props.theme.colors.primary};
   border: none;
   color: black;
@@ -39,7 +43,7 @@ export const PrimaryButton = styled(Base)`
   }
 `;
 
-export const SecondaryButton = styled(Button)`
+const SecondaryButton = styled(Button)`
   padding: 1em 2em;
   border-radius: 5px;
   color: ${(props) => props.theme.colors.text};
@@ -51,4 +55,20 @@ export const SecondaryButton = styled(Button)`
     color: ${(props) => props.theme.colors.bg};
     background-color: ${(props) => props.theme.colors.primary};
   }
+`;
+
+const IconButton = styled(Base)`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0em;
+  background: none;
+  border: none;
+  font-size: ${(props) => props.theme.fontSize.xl2};
+  color: ${(props) => props.theme.colors.text};
+`;
+
+const IconButtonName = styled.p`
+  font-size: ${(props) => props.theme.fontSize.s};
 `;
