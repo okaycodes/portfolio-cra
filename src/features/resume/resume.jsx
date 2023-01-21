@@ -3,12 +3,35 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { ImPrevious } from "react-icons/im";
 import { ImNext } from "react-icons/im";
-import Button from "../ui/button";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
+import Button from "../ui/button";
+
 export default function ResumeItem({ pdf, pageNumber }) {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+  const handleDownload = () => {
+    fetch("/pdf/resume-fullstack-full.pdf").then((response) => {
+      response.blob().then((blob) => {
+        const fileURL = window.URL.createObjectURL(blob);
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "/pdf/resume-fullstack1.pdf";
+        alink.click();
+      });
+    });
+  };
+
+  const handlePrev = () => {
+    const element = document.getElementById("page-1");
+    element.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleNext = () => {
+    const element = document.getElementById("page-2");
+    element.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -18,23 +41,42 @@ export default function ResumeItem({ pdf, pageNumber }) {
             <PageNumber>page: {pageNumber}/2</PageNumber>
 
             <SwitchPage>
-              <Button variant="ICON" iconName="prev">
+              <Button
+                variant="ICON"
+                iconName="prev"
+                onClick={handlePrev}
+                animateIconLeft
+                disabled={pageNumber === 1}
+              >
                 <ImPrevious />
               </Button>
-              <Button variant="ICON" iconName="next">
+
+              <Button
+                variant="ICON"
+                iconName="next"
+                onClick={handleNext}
+                animateIconRight
+                disabled={pageNumber === 2}
+              >
                 <ImNext />
               </Button>
             </SwitchPage>
           </PageActions>
 
-          <Button variant="ICON" iconName="download">
+          <Button
+            variant="ICON"
+            iconName="download"
+            animateIconDown
+            onClick={handleDownload}
+          >
             <AiOutlineDownload />
           </Button>
         </Actions>
-
-        <Document file={pdf}>
-          <Page width={800} pageNumber={1} renderAnnotationLayer={true} />
-        </Document>
+        <div>
+          <Document file={pdf}>
+            <Page width={800} pageNumber={1} renderAnnotationLayer={true} />
+          </Document>
+        </div>
       </Container>
     </>
   );

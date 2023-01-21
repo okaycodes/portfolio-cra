@@ -13,6 +13,7 @@ const darkTheme = {
     text: neutral[100],
     linkText: green[200],
     primary: green[200],
+    disabled: neutral[200],
   },
 };
 
@@ -23,6 +24,7 @@ const lightTheme = {
     text: neutral[300],
     linkText: green[300],
     primary: green[300],
+    disabled: neutral[200],
   },
 };
 

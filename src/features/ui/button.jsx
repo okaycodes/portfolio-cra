@@ -6,11 +6,24 @@ export default function Button({
   onClick,
   type = "button",
   variant = "PRIMARY",
+  animateIconDown,
+  animateIconLeft,
+  animateIconRight,
   ...restProps
 }) {
   switch (variant) {
     case "ICON":
-      return <IconButton>{children}</IconButton>;
+      return (
+        <IconButton
+          onClick={onClick}
+          animateIconDown={animateIconDown}
+          animateIconLeft={animateIconLeft}
+          animateIconRight={animateIconRight}
+          {...restProps}
+        >
+          {children}
+        </IconButton>
+      );
 
     case "SECONDARY":
       return (
@@ -32,6 +45,9 @@ const Base = styled.button`
   padding: 0.5em 1.2em;
   cursor: pointer;
   transition: all 300ms;
+  &:disabled {
+    color: ${(props) => props.theme.colors.disabled};
+  }
 `;
 
 const PrimaryButton = styled(Base)`
@@ -67,8 +83,19 @@ const IconButton = styled(Base)`
   border: none;
   font-size: ${(props) => props.theme.fontSize.xl2};
   color: ${(props) => props.theme.colors.text};
-`;
+  transition: transform 200ms;
 
-const IconButtonName = styled.p`
-  font-size: ${(props) => props.theme.fontSize.s};
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+    transform: ${(props) => props.animateIconLeft && "translateX(-10%)"};
+    transform: ${(props) => props.animateIconRight && "translateX(10%)"};
+    transform: ${(props) => props.animateIconDown && "translateY(10%)"};
+  }
+
+  //  overwrite color and transform from hover
+  &:disabled {
+    color: ${(props) => props.theme.colors.disabled};
+    transform: translateX(0);
+    transform: translateY(0);
+  }
 `;
