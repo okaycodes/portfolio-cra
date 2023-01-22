@@ -53,7 +53,7 @@ const Base = styled.button`
 const PrimaryButton = styled(Base)`
   background-color: ${(props) => props.theme.colors.primary};
   border: none;
-  color: black;
+  color: ${(props) => props.theme.colors.bg};
   &:hover {
     background-color: ${(props) => props.theme.colors.text};
   }

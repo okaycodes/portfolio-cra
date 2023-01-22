@@ -8,6 +8,7 @@ import { navArray } from "./header.constants";
 export default function Header({ switchTheme, themeMode }) {
   const { pathname, hash } = useLocation();
   const [scrollPastHeader, setScrollPastHeader] = useState(false);
+
   //   ensure the currentItem is consistent with pathname after reload
   const [activeItem, setActiveItem] = useState(
     hash ? hash.replace("#", "") : pathname.replace("/", "")

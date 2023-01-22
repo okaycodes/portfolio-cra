@@ -23,7 +23,7 @@ const lightTheme = {
     bg: neutral[100],
     text: neutral[300],
     linkText: green[300],
-    primary: green[300],
+    primary: green[400],
     disabled: neutral[200],
   },
 };

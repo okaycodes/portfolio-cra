@@ -38,7 +38,7 @@ export default function ResumeItem({ pdf, pageNumber }) {
       <Container id={`page-${pageNumber}`}>
         <Actions>
           <PageActions>
-            <PageNumber>page: {pageNumber}/2</PageNumber>
+            <PageNumber>Page: {pageNumber}/2</PageNumber>
 
             <SwitchPage>
               <Button
