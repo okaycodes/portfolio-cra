@@ -1,6 +1,28 @@
 import styled from "styled-components";
 import { SectionBaseStyles } from "../common/styles";
 
+export default function HeroContainer() {
+  return (
+    <Container id="about">
+      <Avatar></Avatar>
+      <Intro>
+        <Text>Hi there, My name is </Text>
+        <Title>Favour O. Okenana.</Title>
+        <Text> I am a</Text>
+        <TextAccent> Software Developer. </TextAccent>
+      </Intro>
+      <Intro>
+        <Text>
+          I am a fullstack software developer specializing in frontend software
+          development targeting both web and mobile platfroms. I take great
+          pleasure in learning new technologies and architecting scalable, clean
+          and performant applications.
+        </Text>
+      </Intro>
+    </Container>
+  );
+}
+
 export const Container = styled(SectionBaseStyles)`
   align-items: center;
   min-height: 500px;
@@ -9,7 +31,6 @@ export const Container = styled(SectionBaseStyles)`
 
 export const Title = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl3};
-  color: white;
   line-height: 1.6;
   display: inline;
 `;
