@@ -12,12 +12,12 @@ export default function ResumeItem({ pdf, pageNumber }) {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   const handleDownload = () => {
-    fetch("/pdf/resume-fullstack-full.pdf").then((response) => {
+    fetch("./pdf/resume-fullstack-full.pdf").then((response) => {
       response.blob().then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement("a");
         alink.href = fileURL;
-        alink.download = "/pdf/resume-fullstack1.pdf";
+        alink.download = "favour_okenana_resume.pdf";
         alink.click();
       });
     });
