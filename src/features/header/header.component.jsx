@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { CgShapeRhombus } from "react-icons/cg";
+import { IoCloseOutline } from "react-icons/io5";
 
 import ThemeIcon from "./themeIcon";
 import { navArray } from "./header.constants";
 
 export default function Header({ switchTheme, themeMode }) {
+  const [showMenu, setShowMenu] = useState(false);
   const { pathname, hash } = useLocation();
   const [scrollPastHeader, setScrollPastHeader] = useState(false);
 
@@ -14,7 +18,10 @@ export default function Header({ switchTheme, themeMode }) {
     hash ? hash.replace("#", "") : pathname.replace("/", "")
   );
 
-  const handleClick = (navItem) => setActiveItem(navItem);
+  const handleClick = (navItem) => {
+    setActiveItem(navItem);
+    setShowMenu(false);
+  };
 
   //state to determine when to show box-shadow on header
   useEffect(() => {
@@ -30,15 +37,24 @@ export default function Header({ switchTheme, themeMode }) {
   return (
     <Container scrollPastHeader={scrollPastHeader}>
       <Inner>
-        <NavListLink to="../">
-          <Logo src="./images/icons/logo.svg" />
-        </NavListLink>
+        <Logo to="../">
+          <img
+            style={{ width: "100%" }}
+            src="./images/icons/logo.svg"
+            alt="logo"
+          />
+        </Logo>
 
-        <Nav>
+        <Nav showMenu={showMenu}>
           <NavList>
+            <CloseIcon onClick={() => setShowMenu(false)} />
             {navArray.map((navItem) => {
               return (
-                <NavListItem key={navItem.name}>
+                <NavListItem
+                  key={navItem.name}
+                  isActive={activeItem === navItem.name}
+                >
+                  <NavListIcon />
                   <NavListLink
                     to={navItem.link}
                     state={{ from: pathname }}
@@ -52,14 +68,17 @@ export default function Header({ switchTheme, themeMode }) {
             })}
           </NavList>
         </Nav>
-        <ThemeIcon switchTheme={switchTheme} themeMode={themeMode} />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <ThemeIcon switchTheme={switchTheme} themeMode={themeMode} />
+          <Hamburger onClick={() => setShowMenu(true)} />
+        </div>
       </Inner>
     </Container>
   );
 }
 
 const Container = styled.header`
-  padding: 0 1.5em;
+  padding: 1.2em;
   position: fixed;
   z-index: 2;
   width: 100%;
@@ -76,42 +95,112 @@ const Inner = styled.div`
   margin: 0 auto;
   max-width: 1100px;
 `;
-const Logo = styled.img`
+const Logo = styled(Link)`
   width: 80px;
 `;
 
+const Hamburger = styled(FaBars)`
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: 1em;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media (min-width: 800px) {
+    display: none;
+  }
+`;
+
+const CloseIcon = styled(IoCloseOutline)`
+  cursor: pointer;
+  font-size: 36px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media (min-width: 800px) {
+    display: none;
+  }
+`;
+
 const Nav = styled.nav`
-  min-width: 430px;
   margin: 0;
+  position: fixed;
+  background-color: ${(props) => props.theme.colors.bg};
+  width: 75%;
+  max-width: 400px;
+  height: 100%;
+  top: 0;
+  z-index: 3;
+  right: ${(props) => (props.showMenu ? 0 : "-510px")};
+  opacity: 0.95;
+  padding-top: 5em;
+  transition: right 200ms linear;
+  @media (min-width: 800px) {
+    position: static;
+    background: none;
+    width: 100%;
+    min-width: 430px;
+    padding: 0;
+  }
 `;
 
 const NavList = styled.ul`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
-  letter-spacing: 1.5px;
+  height: 100%;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1.5px;
+  }
 `;
 
-const NavListItem = styled.li``;
-
-const NavListLink = styled(Link)`
-  all: unset;
-  cursor: pointer;
-  padding: 2em 0;
-  font-size: 13px;
-  font-weight: 400;
-  margin: 0
-  color: ${(props) => props.theme.colors.text};
+const NavListItem = styled.li`
+  padding: 0 2em;
+  margin-bottom: 1em;
   color: ${(props) => props.isActive && props.theme.colors.primary};
-  border-bottom: ${(props) =>
-    props.isActive && `solid 2px ${props.theme.colors.primary} `};
 
   &:hover,
   &:focus {
     color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media (min-width: 800px) {
+    margin-bottom: 0;
+    padding: 0;
+  }
+`;
+
+const NavListIcon = styled(CgShapeRhombus)`
+  font-size: ${(props) => props.theme.fontSize.xs};
+  margin-right: 1em;
+  @media (min-width: 800px) {
+    display: none;
+    margin-right: 0;
+  }
+`;
+
+const NavListLink = styled(Link)`
+  all: unset;
+  cursor: pointer;
+  font-size: ${(props) => props.theme.fontSize.xl};
+  border-bottom: ${(props) =>
+    props.isActive && `solid 2px ${props.theme.colors.primary} `};
+
+  @media (min-width: 800px) {
+    padding: 2em 0;
+    font-size: 13px;
+    font-weight: 400;
   }
 `;

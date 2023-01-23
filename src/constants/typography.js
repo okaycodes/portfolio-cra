@@ -6,6 +6,7 @@ export const fontSize = {
   lg: "1.1rem",
   m: "1rem",
   s: "0.8rem",
+  xs: "0.7rem",
 };
 
 export const fontFamily = { primary: '"Roboto Mono", monospace' };
