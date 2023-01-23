@@ -46,20 +46,23 @@ const Base = styled.button`
   cursor: pointer;
   transition: all 300ms;
   &:disabled {
+    cursor: auto;
     color: ${(props) => props.theme.colors.disabled};
   }
 `;
 
 const PrimaryButton = styled(Base)`
-  background-color: ${(props) => props.theme.colors.primary};
   border: none;
   color: ${(props) => props.theme.colors.bg};
+  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.isActive && props.theme.colors.text};
+
   &:hover {
     background-color: ${(props) => props.theme.colors.text};
   }
 `;
 
-const SecondaryButton = styled(Button)`
+const SecondaryButton = styled(Base)`
   padding: 1em 2em;
   border-radius: 5px;
   color: ${(props) => props.theme.colors.text};
