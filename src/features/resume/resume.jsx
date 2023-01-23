@@ -7,6 +7,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 import Button from "../ui/button";
+import { useWindowResize } from "../../hooks/useWindowResize";
 
 export default function ResumeItem({ pdf, pageNumber }) {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -22,6 +23,8 @@ export default function ResumeItem({ pdf, pageNumber }) {
       });
     });
   };
+
+  const { width } = useWindowResize();
 
   const handlePrev = () => {
     const element = document.getElementById("page-1");
@@ -74,7 +77,11 @@ export default function ResumeItem({ pdf, pageNumber }) {
         </Actions>
 
         <Document file={pdf} externalLinkTarget="_blank">
-          <Page width={800} pageNumber={1} renderAnnotationLayer={true} />
+          <Page
+            width={width * 0.9}
+            pageNumber={1}
+            renderAnnotationLayer={true}
+          />
         </Document>
       </Container>
     </>
@@ -98,6 +105,8 @@ const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${(props) => props.theme.colors.text};
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const PageActions = styled.div`

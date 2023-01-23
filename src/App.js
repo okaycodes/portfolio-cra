@@ -1,6 +1,6 @@
 import HomePage from "./pages/home";
 import themeData from "./constants/themes";
-import useThemeMode from "./hooks/use-theme";
+import useThemeMode from "./hooks/useTheme";
 import { GlobalStyles } from "./global-styles";
 import { ThemeProvider } from "styled-components";
 import Resume from "./pages/resume";
