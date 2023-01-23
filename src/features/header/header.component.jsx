@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { CgShapeRhombus } from "react-icons/cg";
@@ -7,11 +7,15 @@ import { IoCloseOutline } from "react-icons/io5";
 
 import ThemeIcon from "./themeIcon";
 import { navArray } from "./header.constants";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 export default function Header({ switchTheme, themeMode }) {
-  const [showMenu, setShowMenu] = useState(false);
   const { pathname, hash } = useLocation();
+  const [showMenu, setShowMenu] = useState(false);
   const [scrollPastHeader, setScrollPastHeader] = useState(false);
+
+  const navRef = useRef();
+  useOutsideClick(navRef, () => setShowMenu(false));
 
   //   ensure the currentItem is consistent with pathname after reload
   const [activeItem, setActiveItem] = useState(
@@ -45,7 +49,7 @@ export default function Header({ switchTheme, themeMode }) {
           />
         </Logo>
 
-        <Nav showMenu={showMenu}>
+        <Nav showMenu={showMenu} ref={navRef}>
           <NavList>
             <CloseIcon onClick={() => setShowMenu(false)} />
             {navArray.map((navItem) => {
