@@ -72,11 +72,10 @@ export default function ResumeItem({ pdf, pageNumber }) {
             <AiOutlineDownload />
           </Button>
         </Actions>
-        <div>
-          <Document file={pdf}>
-            <Page width={800} pageNumber={1} renderAnnotationLayer={true} />
-          </Document>
-        </div>
+
+        <Document file={pdf} externalLinkTarget="_blank">
+          <Page width={800} pageNumber={1} renderAnnotationLayer={true} />
+        </Document>
       </Container>
     </>
   );
