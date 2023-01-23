@@ -4,7 +4,7 @@ import useThemeMode from "./hooks/use-theme";
 import { GlobalStyles } from "./global-styles";
 import { ThemeProvider } from "styled-components";
 import Resume from "./pages/resume";
-import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import PageLayout from "./features/ui/layout";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <ThemeProvider theme={themeData[themeMode]}>
       <GlobalStyles />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
             path="/"
@@ -26,7 +26,7 @@ function App() {
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }
