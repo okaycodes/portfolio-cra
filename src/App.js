@@ -16,13 +16,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/portfolio-cra"
+            path="/"
             element={
               <PageLayout switchTheme={switchTheme} themeMode={themeMode} />
             }
           >
             <Route index element={<HomePage />} />
-            <Route path="/portfolio-cra/resume" element={<Resume />} />
+            <Route path="resume" element={<Resume />} />
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>
