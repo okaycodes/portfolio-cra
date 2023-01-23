@@ -4,7 +4,7 @@ import useThemeMode from "./hooks/use-theme";
 import { GlobalStyles } from "./global-styles";
 import { ThemeProvider } from "styled-components";
 import Resume from "./pages/resume";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import PageLayout from "./features/ui/layout";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <ThemeProvider theme={themeData[themeMode]}>
       <GlobalStyles />
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -22,11 +22,11 @@ function App() {
             }
           >
             <Route index element={<HomePage />} />
-            <Route path="resume" element={<Resume />} />
+            <Route path="/portfolio-cra/resume" element={<Resume />} />
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
