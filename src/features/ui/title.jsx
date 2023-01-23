@@ -1,15 +1,30 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Button from "./button";
 
-export default function Title({ children, actionBtns }) {
+export default function Title({ children, handleFilter }) {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const actionBtns = ["all", "fullstack", "mobile", "frontend", "backend"];
+  const handleClick = (value) => {
+    setActiveFilter(value);
+    handleFilter(value);
+  };
+
   return (
     <Container>
       <Name>{children}</Name>
-      <ButtonsContainer>
-        {actionBtns?.map((action) => (
-          <Button onClick={action.event}>{action.name}</Button>
-        ))}
-      </ButtonsContainer>
+      {handleFilter && (
+        <ButtonsContainer>
+          {actionBtns?.map((action) => (
+            <Button
+              isActive={activeFilter === action}
+              onClick={() => handleClick(action)}
+            >
+              {action}
+            </Button>
+          ))}
+        </ButtonsContainer>
+      )}
     </Container>
   );
 }
