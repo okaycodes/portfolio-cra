@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="/portfolio-cra"
             element={
               <PageLayout switchTheme={switchTheme} themeMode={themeMode} />
             }
