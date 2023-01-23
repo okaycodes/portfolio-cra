@@ -31,7 +31,7 @@ export default function Header({ switchTheme, themeMode }) {
     <Container scrollPastHeader={scrollPastHeader}>
       <Inner>
         <NavListLink to="../">
-          <Logo src="./../../images/icons/logo.svg" />
+          <Logo src="./images/icons/logo.svg" />
         </NavListLink>
 
         <Nav>
