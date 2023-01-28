@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import styled from "styled-components";
 import Header from "../header/header.component";
 
 export default function PageLayout({ switchTheme, themeMode }) {
@@ -28,13 +29,24 @@ export default function PageLayout({ switchTheme, themeMode }) {
 
   //
   return (
-    <main>
-      <Header
-        switchTheme={switchTheme}
-        themeMode={themeMode}
-        //   scrollPastHeader={scrollPastHeader}
-      />
+    <Main>
+      <Header switchTheme={switchTheme} themeMode={themeMode} />
       <Outlet />
-    </main>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  //   &:before {
+  //     content: "";
+  //     position: fixed;
+  //     width: 500px;
+  //     height: 500px;
+  //     bottom: 0;
+  //     left: 0;
+  //     z-index: -1;
+  //     background: url("/images/backgrounds/Polygon Luminary (1).svg") 0 0
+  //       no-repeat;
+  //     transform: rotate(0deg);
+  //   }
+`;

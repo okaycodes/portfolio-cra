@@ -11,7 +11,14 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         --color-primary: #5CE1EC;
         --color-secondary: #00C2CB;
+        background-image: url("/images/backgrounds/Polygon Luminary (1).png");
+        background-repeat: no-repeat;
+        background-size: 800px;
+        background-attachment: fixed;
+        background-position: bottom left;
     }
+
+    
 
     *{
       box-sizing: border-box;

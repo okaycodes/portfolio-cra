@@ -112,7 +112,7 @@ const Hamburger = styled(FaBars)`
     color: ${(props) => props.theme.colors.primary};
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     display: none;
   }
 `;
@@ -127,7 +127,7 @@ const CloseIcon = styled(IoCloseOutline)`
     color: ${(props) => props.theme.colors.primary};
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     display: none;
   }
 `;
@@ -145,7 +145,7 @@ const Nav = styled.nav`
   opacity: 0.95;
   padding-top: 5em;
   transition: right 200ms linear;
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     position: static;
     background: none;
     width: 100%;
@@ -162,7 +162,7 @@ const NavList = styled.ul`
   margin: 0;
   height: 100%;
 
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -180,7 +180,7 @@ const NavListItem = styled.li`
     color: ${(props) => props.theme.colors.primary};
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     margin-bottom: 0;
     padding: 0;
   }
@@ -189,7 +189,7 @@ const NavListItem = styled.li`
 const NavListIcon = styled(CgShapeRhombus)`
   font-size: ${(props) => props.theme.fontSize.xs};
   margin-right: 1em;
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     display: none;
     margin-right: 0;
   }
@@ -202,7 +202,7 @@ const NavListLink = styled(Link)`
   border-bottom: ${(props) =>
     props.isActive && `solid 2px ${props.theme.colors.primary} `};
 
-  @media (min-width: 800px) {
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
     padding: 2em 0;
     font-size: 13px;
     font-weight: 400;
