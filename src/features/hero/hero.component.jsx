@@ -8,15 +8,22 @@ export default function HeroContainer() {
       <Intro>
         <Text>Hi there, My name is </Text>
         <Title>Favour O. Okenana.</Title>
-        <Text> I am a</Text>
-        <TextAccent> Software Developer. </TextAccent>
+        <Text mb="1em">
+          {" "}
+          I am a <TextAccent> Fullstack Software Developer. </TextAccent>
+        </Text>
       </Intro>
       <Intro>
-        <Text>
+        <Text textAlign="left" mb="1em">
           I am a fullstack software developer specializing in frontend software
-          development targeting both web and mobile platfroms. I take great
-          pleasure in learning new technologies and architecting scalable, clean
-          and performant applications.
+          development with over 2 years of experience building enterprise
+          applications at a professional level. Over the years I've worked with
+          incredible and talented individuals building applications targeting
+          both web and mobile platfroms.
+        </Text>
+        <Text textAlign="left">
+          I take great pleasure in learning new technologies and architecting
+          scalable, clean and performant applications.
         </Text>
       </Intro>
     </Container>
@@ -31,12 +38,16 @@ export const Container = styled(SectionBaseStyles)`
 
 export const Title = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl3};
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
-  display: inline;
 `;
 
 export const Text = styled.p`
-  display: inline;
+  display: block;
+  margin: 0;
+  margin-bottom: ${(props) => props.mb};
+  text-align: ${(props) => props.textAlign};
 `;
 
 export const TextAccent = styled.span`
