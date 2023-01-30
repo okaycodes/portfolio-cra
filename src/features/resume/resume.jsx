@@ -9,14 +9,13 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import Button from "../ui/button";
 import { useWindowResize } from "../../hooks/useWindowResize";
 
-export default function ResumeItem({ pdf, pageNumber }) {
+export default function ResumeItem({ pageNumber }) {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
   const { width } = useWindowResize();
   const pdfWidth = width * 0.9 <= 900 ? width * 0.9 : 900;
 
   const handleDownload = () => {
-    fetch("./pdf/resume-fullstack-full.pdf").then((response) => {
+    fetch("./pdf/resume-fullstack.pdf").then((response) => {
       response.blob().then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement("a");
@@ -77,8 +76,15 @@ export default function ResumeItem({ pdf, pageNumber }) {
           </Button>
         </Actions>
 
-        <Document file={pdf} externalLinkTarget="_blank">
-          <Page width={pdfWidth} pageNumber={1} renderAnnotationLayer={true} />
+        <Document
+          file={"./pdf/resume-fullstack.pdf"}
+          externalLinkTarget="_blank"
+        >
+          <Page
+            width={pdfWidth}
+            pageNumber={pageNumber}
+            renderAnnotationLayer={true}
+          />
         </Document>
       </Container>
     </>
@@ -94,7 +100,7 @@ const Container = styled.section`
   padding-top: 100px;
   padding-bottom: 0;
   margin-bottom: 0;
-  max-width: 900px;
+  max-width: 1000px;
 `;
 
 const Actions = styled.div`
@@ -102,8 +108,8 @@ const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${(props) => props.theme.colors.text};
-  width: 100%;
   margin: 0 auto;
+  width: 90%;
 `;
 
 const PageActions = styled.div`
