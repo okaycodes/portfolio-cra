@@ -86,7 +86,7 @@ const Description = styled.div`
   height: 130px;
   width: 100%;
   background-color: ${(props) => props.theme.colors.bg};
-  opacity: 0.85;
+  opacity: 0.95;
   font-size: 14px;
   transition: height 250ms linear;
   overflow: hidden;
