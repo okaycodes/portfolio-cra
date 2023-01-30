@@ -1,10 +1,12 @@
 import styled from "styled-components";
+
+import Contacts from "../contact/contact.component";
 import { SectionBaseStyles } from "../common/styles";
 
 export default function HeroContainer() {
   return (
     <Container id="about">
-      <Avatar></Avatar>
+      {/* <Avatar></Avatar> */}
       <Intro>
         <Text>Hi there, My name is </Text>
         <Title>Favour O. Okenana.</Title>
@@ -26,37 +28,41 @@ export default function HeroContainer() {
           scalable, clean and performant applications.
         </Text>
       </Intro>
+      <ContactsContainer>
+        <Contacts />
+      </ContactsContainer>
     </Container>
   );
 }
 
-export const Container = styled(SectionBaseStyles)`
+const Container = styled(SectionBaseStyles)`
+  padding-top: 200px;
   align-items: center;
   min-height: 500px;
   margin-bottom: 100px;
 `;
 
-export const Title = styled.h1`
+const Title = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl3};
   margin: 0;
   padding: 0;
   line-height: 1.6;
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   display: block;
   margin: 0;
   margin-bottom: ${(props) => props.mb};
   text-align: ${(props) => props.textAlign};
 `;
 
-export const TextAccent = styled.span`
+const TextAccent = styled.span`
   display: inline;
   font-weight: bold;
   color: ${(props) => props.theme.colors.primary};
 `;
 
-export const Avatar = styled.img`
+const Avatar = styled.img`
   width: 200px;
   height: 200px;
   margin: 190px 0 100px;
@@ -66,9 +72,13 @@ export const Avatar = styled.img`
 // additional 90px is added to the avatar to account for the
 // default height of the fixed header
 
-export const Intro = styled.div`
+const Intro = styled.div`
   font-size: 1.25rem;
   width: 85%;
   max-width: 750px;
   text-align: center;
+`;
+
+const ContactsContainer = styled.div`
+  margin-top: 75px;
 `;

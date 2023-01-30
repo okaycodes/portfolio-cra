@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import Contacts from "./contact.component";
 
 import Title from "../ui/title";
-import Button from "../ui/button";
+
 import { SectionBaseStyles } from "../common/styles";
 
 export default function ContactsContainer() {
   return (
     <Container id="contact">
       <Title>CONTACT ME</Title>
-      <Button variant="SECONDARY">E-MAIL</Button>
+      <Contacts />
     </Container>
   );
 }

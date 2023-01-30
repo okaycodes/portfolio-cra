@@ -6,6 +6,7 @@ export default function Button({
   onClick,
   type = "button",
   variant = "PRIMARY",
+  size = "NORMAL",
   animateIconDown,
   animateIconLeft,
   animateIconRight,
@@ -15,6 +16,7 @@ export default function Button({
     case "ICON":
       return (
         <IconButton
+          iconSize={size}
           onClick={onClick}
           animateIconDown={animateIconDown}
           animateIconLeft={animateIconLeft}
@@ -84,9 +86,9 @@ const IconButton = styled(Base)`
   padding: 0em;
   background: none;
   border: none;
-  font-size: ${(props) => props.theme.fontSize.xl2};
   color: ${(props) => props.theme.colors.text};
   transition: transform 200ms;
+  font-size: ${(props) => props.theme.fontSize.xl2};
 
   &:hover {
     color: ${(props) => props.theme.colors.primary};
@@ -100,5 +102,12 @@ const IconButton = styled(Base)`
     color: ${(props) => props.theme.colors.disabled};
     transform: translateX(0);
     transform: translateY(0);
+  }
+
+  @media (min-width: ${(props) => props.theme.bp.sm}) {
+    font-size: ${(props) =>
+      props.iconSize === "LARGE"
+        ? props.theme.fontSize.xl4
+        : props.theme.fontSize.xl2};
   }
 `;
